@@ -19,6 +19,15 @@ public:
 	virtual void Tick(float DeltaSeconds) override;
 
 private:
+	UPROPERTY(EditAnywhere)
+	float CrossHairXLocation = 0.5f;
+
+	UPROPERTY(EditAnywhere)
+	float CrossHairYLocation = 0.33333f;
+
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 1000000;
+
 	ATank* GetControlledTank() const;
 
 	void AimTowardsCrosshair();
@@ -26,9 +35,5 @@ private:
 	// Return an OUT parameter, true if hit landscape
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
-
-	UPROPERTY(EditAnywhere)
-	float CrossHairXLocation = 0.5f;
-	UPROPERTY(EditAnywhere)
-	float CrossHairYLocation = 0.33333f;
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& OutHitLocation) const;
 };
