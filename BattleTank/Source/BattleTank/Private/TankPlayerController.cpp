@@ -38,7 +38,7 @@ void ATankPlayerController::AimTowardsCrosshair()
 
 	if (GetSightRayHitLocation(OutHitLocation))
 	{
-
+		GetControlledTank()->AimAt(OutHitLocation);
 	}
 }
 
